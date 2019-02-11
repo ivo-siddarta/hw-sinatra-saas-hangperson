@@ -12,7 +12,6 @@ class HangpersonGame
   attr_accessor:wrong_guesses
   attr_accessor:word_with_guesses
   attr_accessor:attempt
-  attr_accessor:duplicate
 
   def initialize(word)
     @word = word
@@ -23,16 +22,13 @@ class HangpersonGame
       @word_with_guesses += '-'
     end
     @attempt = 7
-    @duplicate = false
   end
 
   def guess(char_input)
-    @duplicate = false
     if char_input.eql?('') || char_input == nil  || !/[A-Za-z]/.match(char_input)
       raise ArgumentError, "Argument Can't Be Empty or non-alphabetical"
     end
     if @guesses.include?(char_input.downcase) || @wrong_guesses.include?(char_input.downcase)
-      @duplicate = true
       return false
     end
 
