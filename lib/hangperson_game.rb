@@ -20,7 +20,6 @@ class HangpersonGame
     for i in 1..@word.length
       @word_with_guesses += '-'
     end
-    @check_win_or_lose = :play
     @attempt = 7
   end
 
